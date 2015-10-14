@@ -1,6 +1,4 @@
 ##说明
-演示地址：[http://lgh06.gitcafe.io/bed_official/](http://lgh06.gitcafe.io/bed_official/)
+演示地址：[http://lgh06.gitcafe.io/selected/](http://lgh06.gitcafe.io/selected/)
 
-某项目首页
-
-自己完成，借助搜索引擎
+纯css 宽度自适应，高度等比缩放的小demo

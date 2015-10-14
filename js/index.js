@@ -1,3 +1,3 @@
 jQuery(function($){
-	alert('999');
+	console.log('999');
 });
