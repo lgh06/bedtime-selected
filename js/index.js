@@ -30,10 +30,7 @@ jQuery(function($){
 					bedtime.jumpToAndroid("shengyin",$(e.target).data("param")+""); //原生安卓webview 接管
 					return false;			
 				}else if(deviceType == "iPhone"||deviceType == "iPad"){
-					//window.location.href = "bzybedtime://type=shengyin&param="+$(e.target).data("param");
-					js2native("bzybedtime://type=shengyin&param="+$(e.target).data("param"));
-					e.preventDefault();
-					return false;
+					$(e.target).attr("href","bzybedtime://type=shengyin&param="+$(e.target).data("param"));
 				}	
 				
 			}
