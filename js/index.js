@@ -11,20 +11,33 @@ if(bUA.indexOf("Android")>=0){
 }
 
 var $ = function(selector){
-     return document.querySelector(selector);
+    return document.querySelector(selector);
 };
 var $$ = function(selector){
-     return document.querySelectorAll(selector);
+    return document.querySelectorAll(selector);
 };
 
+var is = function(el){
+	if(this.tagName && el.tagName){
+		if(typeof el == 'string'){
+			return !!(this.tagName.toLowerCase() == el.toLowerCase()); 
+		}
+		return !!(this.tagName == el.tagName)
+	}else{
+		return false;
+	}
+}
+HTMLElement.prototype.is = is;
 
 window.onload = function(){
+	
+	
 	$$("a")[1].setAttribute("href","bzybedtime://type=shengyin&param=943/");
 	console.log($("a"))
 	document.onclick = function(e){
-		console.log(e.target);
+		console.log(typeof e.target);
 		console.log(e.target.tagName);
-		if(e.target.tagName.toLowerCase() == "a"){
+		if(e.target.is("a")){
 			if((!!e.target.dataset.type)){
 				if(deviceType == "Android"){
 					e.preventDefault();
