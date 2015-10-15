@@ -10,18 +10,26 @@ if(bUA.indexOf("Android")>=0){
 	 deviceType = "Android";
 }
 
-jQuery(function($){
-	
-	$("a").eq(1).attr("href","bzybedtime://type=shengyin&param=943/");
-	
-	$(document).click(function(e){
+var $ = function(selector){
+     return document.querySelector(selector);
+};
+var $$ = function(selector){
+     return document.querySelectorAll(selector);
+};
+
+
+window.onload = function(){
+	$$("a")[1].setAttribute("href","bzybedtime://type=shengyin&param=943/");
+	console.log($("a"))
+	document.onclick = function(e){
 		console.log(e.target);
-		if($(e.target).is("a")){
-			if((!!$(e.target).data("type"))){
+		console.log(e.target.tagName);
+		if(e.target.tagName.toLowerCase() == "a"){
+			if((!!e.target.dataset.type)){
 				if(deviceType == "Android"){
 					e.preventDefault();
 					if(typeof bedtime != "undefined"){
-						bedtime.jumpToAndroid("shengyin",$(e.target).data("param")+""); //原生安卓webview 接管
+						bedtime.jumpToAndroid("shengyin",e.target.dataset.param+""); //原生安卓webview 接管
 					}
 					return false;			
 				}else if(deviceType == "iPhone"||deviceType == "iPad"){
@@ -30,14 +38,6 @@ jQuery(function($){
 				
 			}
 		}
-		
-		
-		
 
-	});
-});
-
-
-window.onload = function(){
-	
+	};
 }
