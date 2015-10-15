@@ -11,10 +11,14 @@ if(bUA.indexOf("Android")>=0){
 }
 
 var $ = function(selector){
-    return document.querySelector(selector);
-};
-var $$ = function(selector){
-    return document.querySelectorAll(selector);
+	var t = document.querySelectorAll(selector);
+	if(t.length>1){
+		return t
+	}else if(t.length == 1){
+		return t[0];
+	}else{
+		return undefined;
+	}
 };
 
 var is = function(el){
@@ -32,7 +36,7 @@ HTMLElement.prototype.is = is;
 window.onload = function(){
 	
 	
-	$$("a")[1].setAttribute("href","bzybedtime://type=shengyin&param=943/");
+	$("a")[1].setAttribute("href","bzybedtime://type=shengyin&param=943/");
 	console.log($("a"))
 	document.onclick = function(e){
 		console.log(typeof e.target);
