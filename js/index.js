@@ -12,6 +12,7 @@ if(bUA.indexOf("Android")>=0){
 
 jQuery(function($){
 	
+	alert(1108);
 	$("a").eq(1).attr("href","bzybedtime://type=shengyin&param=943/");
 	
 	$(document).click(function(e){
