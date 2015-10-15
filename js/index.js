@@ -14,13 +14,16 @@ jQuery(function($){
 	$(document).click(function(e){
 		console.log(e.target);
 		if($(e.target).is("a")){
-			if(deviceType == "Android"){
-				e.preventDefault();
-				bedtime.jumpToAndroid("shengyin",$(e.target).data("param")+""); //原生安卓webview 接管
-				return false;			
-			}else if(deviceType == "iPhone"||deviceType == "iPad"){
-				window.location.href = "bzybedtime://type=shengyin&param="+$(e.target).data("param");
-			}	
+			if((!!$(e.target).data("type"))){
+				if(deviceType == "Android" && (!!$(e.target).data("param")) ){
+					e.preventDefault();
+					bedtime.jumpToAndroid("shengyin",$(e.target).data("param")+""); //原生安卓webview 接管
+					return false;			
+				}else if(deviceType == "iPhone"||deviceType == "iPad"){
+					window.location.href = "bzybedtime://type=shengyin&param="+$(e.target).data("param");
+				}	
+				
+			}
 		}
 		
 		
