@@ -31,6 +31,8 @@ jQuery(function($){
 					return false;			
 				}else if(deviceType == "iPhone"||deviceType == "iPad"){
 					$(e.target).attr("href","bzybedtime://type=shengyin&param="+$(e.target).data("param"));
+					$(e.target).prop("href","bzybedtime://type=shengyin&param="+$(e.target).data("param"));
+					return true;
 				}	
 				
 			}
