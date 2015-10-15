@@ -20,6 +20,7 @@ function js2native(src){
 }
 
 jQuery(function($){
+	alert(window.navigator.userAgent);
 	$(document).click(function(e){
 		console.log(e.target);
 		if($(e.target).is("a")){
@@ -31,6 +32,8 @@ jQuery(function($){
 				}else if(deviceType == "iPhone"||deviceType == "iPad"){
 					//window.location.href = "bzybedtime://type=shengyin&param="+$(e.target).data("param");
 					js2native("bzybedtime://type=shengyin&param="+$(e.target).data("param"));
+					e.preventDefault();
+					return false;
 				}	
 				
 			}
