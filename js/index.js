@@ -10,17 +10,10 @@ if(bUA.indexOf("Android")>=0){
 	 deviceType = "Android";
 }
 
-function js2native(src){
-	var iframe = document.createElement("iframe");
-	iframe.src=src;
-	iframe.style.display = 'none';
-	document.body.appendChild(iframe);
-	iframe.parentNode.removeChild(iFrame);
-	iframe = null;
-}
-
 jQuery(function($){
-	alert(window.navigator.userAgent);
+	
+	$("a").eq(1).attr("href","bzybedtime://type=111&param=222/");
+	
 	$(document).click(function(e){
 		console.log(e.target);
 		if($(e.target).is("a")){
@@ -30,9 +23,7 @@ jQuery(function($){
 					bedtime.jumpToAndroid("shengyin",$(e.target).data("param")+""); //原生安卓webview 接管
 					return false;			
 				}else if(deviceType == "iPhone"||deviceType == "iPad"){
-					$(e.target).attr("href","bzybedtime://type=shengyin&param="+$(e.target).data("param"));
-					$(e.target).prop("href","bzybedtime://type=shengyin&param="+$(e.target).data("param"));
-					return true;
+					
 				}	
 				
 			}
